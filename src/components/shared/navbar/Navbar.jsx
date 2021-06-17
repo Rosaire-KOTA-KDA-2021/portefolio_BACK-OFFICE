@@ -45,7 +45,7 @@ const Navbar = (props) => {
             <Link to="/"> Dashboard</Link>
           </li>
           <li>
-            <Link to="/films"> Ajouter un projet</Link>
+            <Link to="/project/add"> Ajouter un projet</Link>
           </li>
           <li>
             <Link to="/series">Autres</Link>

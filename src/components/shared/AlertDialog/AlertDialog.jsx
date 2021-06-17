@@ -5,6 +5,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import { Outlined, Filled } from "@material-ui/icons/Delete";
 
 const AlertDialog = ({ projectId, onDelete }) => {
   const [open, setOpen] = React.useState(false);
@@ -19,7 +20,7 @@ const AlertDialog = ({ projectId, onDelete }) => {
 
   return (
     <div>
-      <Button variant="outlined" color="secondary" onClick={handleClickOpen}>
+      <Button variant="contained" color="secondary" onClick={handleClickOpen}>
         Supprimer
       </Button>
       <Dialog

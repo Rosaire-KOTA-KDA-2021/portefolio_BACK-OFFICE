@@ -14,10 +14,7 @@ export const ProjectItem = ({ project, onDelete }) => {
         <TableCell align="right">{project.id}</TableCell>
         <TableCell align="right">{project.title}</TableCell>
         <TableCell align="right">
-          <ButtonGroup
-            color="primary"
-            aria-label="outlined secondary button group"
-          >
+          <ButtonGroup disableElevation variant="contained" color="default">
             <Button>
               <Link to={`update/${project.id}`}>Modifier</Link>
             </Button>
