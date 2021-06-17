@@ -11,6 +11,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { ProjectItem } from "./protectItem/ProjectItem";
 import { projectsApi } from "../../Api/projectsApi";
+import AlertDialog from "../shared/AlertDialog";
 const useStyles = makeStyles({
 	table: {
 		minWidth: 650,
@@ -63,15 +64,9 @@ export const ProjectsStore = () => {
 		});
 	};
 	const handelDelete = (id) => {
-		const response = window.confirm("voulez-vous vraiment supprimer?");
-		if (response) {
-			projectsApi.delete(`/api/projects/${id}`).then((res) => {
-				alert(res.data);
-				return fetchProjects();
-			});
-		} else {
-			alert("merci de ne pas avoir supprimer");
-		}
+		projectsApi.delete(`/api/projects/${id}`).then((res) => {
+			return fetchProjects();
+		});
 	};
 
 	if (!isLoading) return <div>chargement...</div>;
