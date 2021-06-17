@@ -1,0 +1,86 @@
+
+
+.header{
+  margin: 0;
+  padding: 0.5rem;
+  color: white;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: uppercase;
+  background: repeating-radial-gradient( #1a2d79,#191c42 2px);
+   a{
+     color:white;
+     
+   }
+   a:hover{
+    transition:180ms linear ;
+    color:#ea5152;
+  }
+  ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    li{
+      display: inline;
+      text-underline: none;
+      padding-left: 2rem;
+    }
+  }
+  div > input{
+    outline: none;
+    padding: 0.8rem;
+    border-radius: 10px;
+    border: 0;
+
+  }
+  .navbar__collapse{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar__nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar__search{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .btn-click{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo{
+    fon-size: 7rem;
+    color:#ea5152;
+    font-weight: bold;
+  }
+  
+  
+  @media screen and(min-width: 768px){
+  .inputSearch{
+      width: 400px;
+      margin-right: 10rem;
+      outline: none;
+      padding: 1rem;
+      border: 0;
+      border-radius: 40px;
+      font-size: 16px;
+
+    }
+  }
+
+
+}
