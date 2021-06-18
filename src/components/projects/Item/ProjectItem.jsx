@@ -9,10 +9,15 @@ export const ProjectItem = ({ project, onDelete }) => {
     <>
       <TableRow key={project.id}>
         <TableCell component="th" scope="row">
-          {project.description}
+          <Link to={`/detail/${project.id}`}> {project.description}</Link>
         </TableCell>
-        <TableCell align="right">{project.id}</TableCell>
-        <TableCell align="right">{project.title}</TableCell>
+
+        <TableCell align="right">
+          <Link to={`/detail/${project.id}`}>{project.title}</Link>
+        </TableCell>
+        <TableCell align="right">
+          <Link to={`/detail/${project.id}`}>{project.github_link}</Link>
+        </TableCell>
         <TableCell align="right">
           <ButtonGroup disableElevation variant="contained" color="default">
             <Button>

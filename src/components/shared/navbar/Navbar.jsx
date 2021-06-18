@@ -42,7 +42,7 @@ const Navbar = (props) => {
         </Link>
         <ul className="navbar__nav">
           <li>
-            <Link to="/"> Dashboard</Link>
+            <Link to="/"> accueil</Link>
           </li>
           <li>
             <Link to="/project/add"> Ajouter un projet</Link>

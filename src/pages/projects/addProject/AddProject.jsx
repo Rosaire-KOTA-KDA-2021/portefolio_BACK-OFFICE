@@ -10,6 +10,7 @@ export const AddProject = ({ project }) => {
     image: project ? project.image : "",
     subtitle: project ? project.subtitle : "",
     description: project ? project.description : "",
+    github_link: project ? project.github_link : "",
   });
 
   const handleChange = (event) => {
@@ -24,6 +25,7 @@ export const AddProject = ({ project }) => {
       image: "img.test.jpg",
       subtitle: values.subtitle,
       description: values.description,
+      github_link: values.github_link,
     };
     projectsApi.post("/api/projects", values).then((response) => {
       setValues({
@@ -63,10 +65,10 @@ export const AddProject = ({ project }) => {
             <Grid container>
               <Grid item xs={12} sm={12} md={5}>
                 <InputField
-                  values={values.description}
+                  values={values.github_link}
                   handleChange={handleChange}
-                  inputName="description"
-                  label="Description"
+                  inputName="github_link"
+                  label="Lien Github"
                   number={300}
                 />
               </Grid>
@@ -76,6 +78,15 @@ export const AddProject = ({ project }) => {
                   handleChange={handleChange}
                   inputName="image"
                   label="Lien Image Cloudinay"
+                  number={300}
+                />
+              </Grid>
+              <Grid item xs={12} sm={12} md={12}>
+                <InputField
+                  values={values.description}
+                  handleChange={handleChange}
+                  inputName="description"
+                  label="Description"
                   number={300}
                 />
               </Grid>
