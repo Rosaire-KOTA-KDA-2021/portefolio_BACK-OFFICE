@@ -1,48 +1,46 @@
 import { Button, Container, Grid, Typography } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputField from "../../../components/shared/Input/InputField";
 import { projectsApi } from "../../../api/projectsApi";
-import { Redirect } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 
-export const AddProject = ({ project }) => {
+export const UpdateProject = (defaultValue = {}) => {
   const [redirect, setRedirect] = useState(false);
-  const [values, setValues] = useState({
-    title: project ? project.title : "",
-    image: project ? project.image : "",
-    used_technologies: project ? project.used_technologies : "",
-    description: project ? project.description : "",
-    github_link: project ? project.github_link : "",
+  const { id } = useParams();
+
+  const [values, setValues] = React.useState(() => {
+    const project = JSON.parse(localStorage.getItem("projects")).find(
+      (item) => parseInt(item.id) === parseInt(id)
+    );
+    return project !== null ? project : defaultValue;
   });
 
   const handleChange = (event) => {
     event.preventDefault();
     setValues({ ...values, [event.target.name]: event.target.value });
-    console.log(values);
   };
-  const handelSubmit = (event) => {
+  const handelUpdate = (event) => {
     event.preventDefault();
 
-    projectsApi.post("/api/projects", values).then((response) => {
-      setRedirect(true);
+    projectsApi.put(`/api/projects/${id}`, values).then((response) => {
       setValues({
         title: "",
         image: "img.test.jpg",
         used_technologies: "img",
         description: "",
       });
+      setRedirect(true);
       return alert(response.data);
     });
   };
-  if (redirect) {
-    return <Redirect to="/" />;
-  }
+  if (redirect) return <Redirect to="/" />;
   return (
     <>
       <Container center>
         <Container component={Paper}>
           <Typography center>Ajouter un nouveau projet</Typography>
-          <form action="" method="post" onSubmit={handelSubmit}>
+          <form action="" method="post" onSubmit={handelUpdate}>
             <Grid container>
               <Grid item xs={12} sm={4} md={5}>
                 <InputField

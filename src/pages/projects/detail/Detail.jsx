@@ -15,7 +15,7 @@ const Detail = () => {
     projectsApi.get(`/api/projects/${id}`).then((response) => {
       if (response.data) {
         setProject(response.data);
-      }
+      } else return alert("Cet projet n'existe pas.");
     });
   };
   return (

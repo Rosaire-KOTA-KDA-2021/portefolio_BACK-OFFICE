@@ -42,9 +42,11 @@ export default function InputField({
             id="outlined-adornment-password"
             type="text"
             value={values}
+            defaultvalue={values}
             onChange={handleChange}
             labelWidth={100}
             name={inputName}
+            required
           />
         </FormControl>
       </div>

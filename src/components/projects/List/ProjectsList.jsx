@@ -28,7 +28,7 @@ const ProjectsList = ({ projects, onDelete }) => {
           <TableHead>
             <TableRow>
               <TableCell>Description</TableCell>
-              <TableCell align="right">ID</TableCell>
+              <TableCell align="right">Lien Github</TableCell>
               <TableCell align="right">Titre</TableCell>
               <TableCell align="right">Actions</TableCell>
             </TableRow>

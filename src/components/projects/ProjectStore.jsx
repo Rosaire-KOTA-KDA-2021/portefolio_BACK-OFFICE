@@ -3,7 +3,9 @@ import { projectsApi } from "../../api/projectsApi";
 import ProjectsList from "./List/ProjectsList";
 
 export const ProjectsStore = () => {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState(
+    localStorage.getItem("projects") ? localStorage.getItem("projects") : []
+  );
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -16,6 +18,7 @@ export const ProjectsStore = () => {
       if (data.length > 0) {
         setProjects(data);
         setIsLoading(true);
+        localStorage.setItem("projects", JSON.stringify(data));
       }
     });
   };
