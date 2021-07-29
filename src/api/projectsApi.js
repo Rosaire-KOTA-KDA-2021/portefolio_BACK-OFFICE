@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const projectsApi = axios.create({
-  baseURL: "https://cryptic-sands-81509.herokuapp.com",
+  baseURL: "https://portofolio-cms-api.herokuapp.com",
 });
